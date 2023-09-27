@@ -35,6 +35,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      - name: Check Docker daemon status
+        run: systemctl status docker
+
+      - name: Check Docker permission
+        run: docker run hello-world
+
+      - name: Check Docker image availability
+        run: docker images
+
+      - name: Check Docker configuration
+        run: docker info
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
         uses: actions/checkout@v2
